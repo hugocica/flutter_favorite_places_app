@@ -10,7 +10,17 @@ class PlacesListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return ListTile(
+      leading: CircleAvatar(
+        radius: 26,
+        backgroundImage: FileImage(place.image),
+      ),
+      title: Text(
+        place.title,
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+      ),
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
@@ -20,17 +30,6 @@ class PlacesListItem extends StatelessWidget {
           ),
         );
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0),
-        child: ListTile(
-          title: Text(
-            place.title,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
-          ),
-        ),
-      ),
     );
   }
 }

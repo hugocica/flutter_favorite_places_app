@@ -1,5 +1,7 @@
-import 'package:favorite_places_app/app/models/place.dart';
+import 'dart:io';
+
 import 'package:favorite_places_app/app/providers/places_provider.dart';
+import 'package:favorite_places_app/app/widgets/image_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,6 +17,7 @@ class NewPlaceScreen extends ConsumerStatefulWidget {
 class _NewPlaceState extends ConsumerState<NewPlaceScreen> {
   final _formKey = GlobalKey<FormState>();
   String _title = '';
+  File? _image;
 
   void _saveItem() {
     if (_formKey.currentState!.validate()) {
@@ -22,7 +25,7 @@ class _NewPlaceState extends ConsumerState<NewPlaceScreen> {
 
       final placeProvider = ref.read(placesProvider.notifier);
 
-      placeProvider.addNewPlace(Place(title: _title));
+      placeProvider.addNewPlace(_title, _image!);
 
       Navigator.of(context).pop();
     }
@@ -62,7 +65,13 @@ class _NewPlaceState extends ConsumerState<NewPlaceScreen> {
                 },
               ),
               const SizedBox(
-                height: 12,
+                height: 16,
+              ),
+              ImageInput(
+                onPickImage: (image) => _image = image,
+              ),
+              const SizedBox(
+                height: 16,
               ),
               ElevatedButton.icon(
                 onPressed: _saveItem,

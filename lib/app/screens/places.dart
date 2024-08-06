@@ -9,7 +9,7 @@ class PlacesScreen extends ConsumerWidget {
   const PlacesScreen({super.key});
 
   @override
-  Widget build(context, ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     List<Place> placesList = ref.watch(placesProvider);
 
     return Scaffold(
@@ -30,8 +30,11 @@ class PlacesScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: PlacesList(
-        places: placesList,
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: PlacesList(
+          places: placesList,
+        ),
       ),
     );
   }
