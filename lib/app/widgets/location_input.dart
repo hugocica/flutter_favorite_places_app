@@ -30,12 +30,12 @@ class _LocationInputState extends State<LocationInput> {
       return '';
     }
 
-    return 'https://maps.googleapis.com/maps/api/staticmap?center=$latitude,$longitude=&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$latitude,$longitude&key=AIzaSyAGpPjmbn3o-3jH-O1a5vqvBpKkw2okVsQ';
+    return 'https://maps.googleapis.com/maps/api/staticmap?center=$latitude,$longitude=&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$latitude,$longitude&key=${const String.fromEnvironment('MAPS_API_KEY')}';
   }
 
   void _savePlace(double latitude, double longitude) async {
     final url = Uri.parse(
-        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyAGpPjmbn3o-3jH-O1a5vqvBpKkw2okVsQ');
+        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=${const String.fromEnvironment('MAPS_API_KEY')}');
     final response = await http.get(url);
     final responseData = json.decode(response.body);
     final address = responseData['results'][0]['formatted_address'];
