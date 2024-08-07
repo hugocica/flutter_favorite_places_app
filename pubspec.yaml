@@ -40,6 +40,8 @@ dependencies:
   flutter_bloc: ^8.1.6
   uuid: ^4.4.2
   image_picker: ^1.1.2
+  location: ^6.0.2
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:

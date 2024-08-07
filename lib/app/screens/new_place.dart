@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:favorite_places_app/app/models/place.dart';
 import 'package:favorite_places_app/app/providers/places_provider.dart';
 import 'package:favorite_places_app/app/widgets/image_input.dart';
+import 'package:favorite_places_app/app/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,14 +20,15 @@ class _NewPlaceState extends ConsumerState<NewPlaceScreen> {
   final _formKey = GlobalKey<FormState>();
   String _title = '';
   File? _image;
+  PlaceLocation? _location;
 
   void _saveItem() {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate() && _image != null) {
       _formKey.currentState!.save();
 
       final placeProvider = ref.read(placesProvider.notifier);
 
-      placeProvider.addNewPlace(_title, _image!);
+      placeProvider.addNewPlace(_title, _image!, _location!);
 
       Navigator.of(context).pop();
     }
@@ -69,6 +72,12 @@ class _NewPlaceState extends ConsumerState<NewPlaceScreen> {
               ),
               ImageInput(
                 onPickImage: (image) => _image = image,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              LocationInput(
+                onSelectLocation: (location) => _location = location,
               ),
               const SizedBox(
                 height: 16,

@@ -8,8 +8,8 @@ const List<Place> kInitialPlaces = [];
 class PlacesNotifier extends StateNotifier<List<Place>> {
   PlacesNotifier() : super(kInitialPlaces);
 
-  void addNewPlace(String title, File image) {
-    state = [...state, Place(title: title, image: image)];
+  void addNewPlace(String title, File image, PlaceLocation location) {
+    state = [...state, Place(title: title, image: image, location: location)];
   }
 
   void removePlace(String title) {
