@@ -2,15 +2,24 @@
 
 A new Flutter project.
 
-## Getting Started
+## Feature
 
-This project is a starting point for a Flutter application.
+- Providers with riverpod
+- Image Picker package to take pictures
+- Location package to get user current location
+- Integration with Google Maps API
+- Creating local database to store saved places
 
-A few resources to get you started if this is your first Flutter project:
+## ToDo's
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Add backdrop to choose between file from gallery or picture from the camera
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/4839c9d1-59e3-4eff-94b6-badffb7b97b5)
+![image](https://github.com/user-attachments/assets/b99be7eb-0f9f-4f86-9448-41e751047f0e)
+![image](https://github.com/user-attachments/assets/f0fc542e-022b-4b35-b1f8-6e24c9207d04)
+![image](https://github.com/user-attachments/assets/8c65dd25-2244-40af-aadf-406e29edf4a3)
+![image](https://github.com/user-attachments/assets/1bfdbf37-c26a-4ad3-ba8c-3a3b14c6890a)
+![image](https://github.com/user-attachments/assets/98cece43-d53c-4cfc-9d95-28ec88f28077)
